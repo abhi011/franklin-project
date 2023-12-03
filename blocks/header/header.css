@@ -1,4 +1,3 @@
-/* header and nav layout */
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -21,6 +20,10 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+header .icon-wkndlogo svg {
+  max-width: 128px;
+}
+
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -30,13 +33,13 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
-@media (width >= 600px) {
+@media (min-width: 600px) {
   header nav {
     padding: 0 2rem;
   }
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   header nav {
     display: flex;
     justify-content: space-between;
@@ -55,6 +58,13 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-transform: uppercase;
+  padding: 15px 17px;
+  text-decoration: none;
+}
+
+header .nav-sections a:hover {
+  background-color: var(--heading-highlight-color);
 }
 
 /* hamburger */
@@ -131,7 +141,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   header nav .nav-hamburger {
     display: none;
     visibility: hidden;
@@ -186,7 +196,7 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
@@ -195,6 +205,8 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav[aria-expanded="true"] .nav-sections {
     align-self: unset;
+    display: flex;
+    justify-content: flex-end;
   }
 
   header nav .nav-sections .nav-drop {
@@ -230,18 +242,18 @@ header nav .nav-sections ul > li > ul > li {
     font-size: var(--body-font-size-xs);
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li {
+  header nav .nav-sections > ul > li {
     flex: 0 1 auto;
     position: relative;
     font-weight: 500;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
+  header nav .nav-sections > ul > li > ul {
     display: none;
     position: relative;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul {
     display: block;
     position: absolute;
     left: -1em;
@@ -252,7 +264,7 @@ header nav .nav-sections ul > li > ul > li {
     white-space: initial;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
+  header nav .nav-sections > ul > li > ul::before {
     content: '';
     position: absolute;
     top: -8px;
@@ -264,7 +276,7 @@ header nav .nav-sections ul > li > ul > li {
     border-bottom: 8px solid var(--highlight-background-color);
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
+  header nav .nav-sections > ul > li > ul > li {
     padding: 8px 0;
   }
 }
